@@ -1,10 +1,10 @@
 from enum import Enum
-from logging import raiseExceptions
+import sys
 
 class Shingou(Enum):
-    RED=1
-    BLUE=2
-    YELLOW=3
+    RED = 1
+    BLUE = 2
+    YELLOW = 3
 
 
 def act_shingou(color):
@@ -18,5 +18,10 @@ def act_shingou(color):
     else:
         raise Exception("信号機の色に対応していません")
 
-    return
+    return Shingou(color)
 
+
+args = sys.argv
+# args = ["shingou_action.py", "2"]
+
+act_shingou(int(args[1]))
